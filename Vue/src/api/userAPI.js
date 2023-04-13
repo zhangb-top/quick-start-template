@@ -7,8 +7,12 @@ export const loginAPI = user => {
 }
 
 // 注册
-export const registerAPI = user => {
-  user.password = CryptoJS.SHA256(user.password).toString()
+export const registerAPI = data => {
+  const user = {
+    username: data.username,
+    password: CryptoJS.SHA256(data.password).toString(),
+    code: data.code
+  }
   return axios.post('/users/register', user)
 }
 

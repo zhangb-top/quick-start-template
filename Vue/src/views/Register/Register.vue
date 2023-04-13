@@ -65,7 +65,10 @@ export default {
   methods: {
     checkPassword() {
       if (this.formData.password === '') return false
-      if (this.formData.confirmPassword !== this.formData.password) {
+      else if (this.formData.password !== '' && this.formData.confirmPassword == '') {
+        this.$refs.confirmPassword.innerHTML = ''
+        return false
+      } else if (this.formData.confirmPassword !== this.formData.password) {
         this.$refs.confirmPassword.innerHTML = '两次输入的密码不一致'
         return false
       }
