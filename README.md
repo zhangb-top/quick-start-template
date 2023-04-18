@@ -45,7 +45,7 @@
 
 ### 定制
 
-这里属于业务模块，工具需要进行取舍
+这里属于业务模块，根据需要进行取舍
 
 ![question-detail](./img/question-detail.jpg)
 
