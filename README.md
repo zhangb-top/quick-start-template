@@ -11,6 +11,20 @@
 
 
 
+## 如何使用
+
+1. 拉取代码
+
+   ```cobol
+   git clone git@github.com:zhangb-top/quick-start-template.git
+   ```
+
+2. IDEA加载Java包里面的项目，加载对应的maven所需的依赖，修改application.yml文件，设置自己的数据库用户名和密码。在自己的数据库中创建名为internet_competition的数据库，同时执行sql.sql文件，创建表格，后期可以根据自己的业务需求改变数据库名称和表格，但是不要忘记同步修改Java代码。做好后启动SpringBoot工程即可
+
+3. VSCode加载Vue包下的项目，使用`npm install`命令下载所需的依赖包。下载完成后，使用`npm run serve`命令启动项目即可，访问`localhost:8080`地址即可
+
+
+
 ## 项目实现功能
 
 ### 注册功能
@@ -45,7 +59,7 @@
 
 ### 定制
 
-这里属于业务模块，根据需要进行取舍
+这里属于业务模块，工具需要进行取舍
 
 ![question-detail](./img/question-detail.jpg)
 

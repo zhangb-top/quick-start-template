@@ -9,10 +9,4 @@ import java.util.List;
 
 @Mapper
 public interface TravelDao extends BaseMapper<Travel> {
-    @Select("SELECT id,theme,location,itinerary,hotel,budget,status FROM tb_travel WHERE id = #{id}")
-    Travel getTravelById(Integer id);
-
-    @Select("SELECT id, theme, location, itinerary, hotel, budget, status FROM tb_travel WHERE status " +
-            "= 0")
-    List<Travel> getDeleted();
 }

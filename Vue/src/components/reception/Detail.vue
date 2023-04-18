@@ -7,7 +7,7 @@
       <div class="plan-hotel-box item">酒店：{{plan.hotel}}</div>
       <div class="plan-budget-box item">预算：{{plan.budget}}</div>
       <hr>
-      <div class="plan-itinerary-box item" ref="plan">{{plan.itinerary}}</div>
+      <div class="plan-itinerary-box item" ref="plan" v-html="plan.itinerary"></div>
     </el-card>
     <!-- 跳转 -->
     <a href="#theme" class="top">↑</a>

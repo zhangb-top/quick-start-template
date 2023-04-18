@@ -20,6 +20,4 @@ public class Travel {
     // 回复的问题的id 无则为null
     @TableField(value = "questionID")
     private Integer questionID;
-    // 状态
-    private Integer status;
 }

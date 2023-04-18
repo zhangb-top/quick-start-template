@@ -86,44 +86,9 @@ public class TravelController {
     @GetMapping("/{id}")
     @ResponseBody
     public TravelResult getTravelById(@PathVariable Integer id) {
-        Travel travel = travelService.getTravelById(id);
+        Travel travel = travelService.getById(id);
         Integer code = travel != null ? Code.SUCCESS_CODE : Code.ERROR_CODE;
         String msg = travel != null ? "查询成功" : "id不存在或查询失败";
         return new TravelResult(code, travel, msg);
-    }
-
-    /**
-     * 根据id逻辑删除旅游策略
-     *
-     * @param id 旅游策略的id
-     * @return TravelResult
-     */
-    @DeleteMapping("/{id}")
-    @ResponseBody
-    public TravelResult delete(@PathVariable Integer id) {
-        Travel travel = travelService.getById(id);
-        boolean flag = travelService.removeById(id);
-        // 修改tb_question中的answered数据
-        boolean questionFlag = true;
-        if (travel != null && travel.getQuestionID() != null) {
-            questionFlag = questionService.updateAnswered(travel.getQuestionID(), 0);
-        }
-        Integer code = flag && questionFlag ? Code.SUCCESS_CODE : Code.ERROR_CODE;
-        String msg = flag && questionFlag ? "删除成功" : "删除失败";
-        return new TravelResult(code, flag, msg);
-    }
-
-    /**
-     * 查询逻辑删除的旅游策略
-     *
-     * @return TravelResult
-     */
-    @GetMapping("/deleted")
-    @ResponseBody
-    public TravelResult getDeletedUsers() {
-        List<Travel> deletedTravels = travelService.getDeleted();
-        Integer code = deletedTravels != null ? Code.SUCCESS_CODE : Code.ERROR_CODE;
-        String msg = deletedTravels != null ? "查询成功" : "查询失败";
-        return new TravelResult(code, deletedTravels, msg);
     }
 }

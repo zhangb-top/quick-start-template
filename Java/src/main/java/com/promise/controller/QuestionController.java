@@ -39,8 +39,8 @@ public class QuestionController {
         String msg = page.getRecords() != null ? "查询成功" : "查询失败";
         // 添加查询回复ID的功能
         if (page.getRecords() != null) {
-            LambdaQueryWrapper<Travel> queryWrapper = new LambdaQueryWrapper<>();
             for (int i = 0; i < page.getRecords().size(); i++) {
+                LambdaQueryWrapper<Travel> queryWrapper = new LambdaQueryWrapper<>();
                 if (page.getRecords().get(i).getAnswered() == 0) continue;
                 queryWrapper.eq(Travel::getQuestionID, page.getRecords().get(i).getId());
                 page.getRecords().get(i).setAnswer(travelService.getOne(queryWrapper));
@@ -92,8 +92,8 @@ public class QuestionController {
         String msg = page.getRecords() != null ? "查询成功" : "查询失败";
         // 添加查询回复ID的功能
         if (page.getRecords() != null) {
-            LambdaQueryWrapper<Travel> queryWrapper1 = new LambdaQueryWrapper<>();
             for (int i = 0; i < page.getRecords().size(); i++) {
+                LambdaQueryWrapper<Travel> queryWrapper1 = new LambdaQueryWrapper<>();
                 if (page.getRecords().get(i).getAnswered() == 0) continue;
                 queryWrapper1.eq(Travel::getQuestionID, page.getRecords().get(i).getId());
                 page.getRecords().get(i).setAnswer(travelService.getOne(queryWrapper1));
